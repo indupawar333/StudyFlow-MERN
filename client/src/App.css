@@ -1,0 +1,687 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+  color: #202944;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  padding: 28px 20px;
+  background: #17264b;
+  color: white;
+}
+
+.sidebar h2 {
+  margin: 0;
+  font-size: 27px;
+}
+
+.tagline {
+  color: #c6cee2;
+  line-height: 1.5;
+  margin-bottom: 42px;
+}
+
+.sidebar h3 {
+  font-size: 15px;
+  margin: 28px 0 15px;
+}
+
+.nav-button {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 13px 12px;
+  margin: 7px 0;
+  text-align: left;
+  background: transparent;
+  color: #e0e6f4;
+}
+
+.nav-button:hover,
+.nav-button.active {
+  background: #34466e;
+  color: white;
+}
+
+.goal {
+  margin-top: 65px;
+  padding: 12px;
+  color: #dce4f7;
+  line-height: 1.6;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 30px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 28px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.topbar p {
+  color: #778098;
+}
+
+.profile {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.welcome {
+  background: linear-gradient(120deg, #293f75, #536cc0);
+  color: white;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.welcome h2 {
+  margin-top: 0;
+}
+
+.welcome p {
+  margin-bottom: 0;
+  color: #e3e9ff;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stat-card,
+.panel {
+  background: white;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 3px 14px #18284b0a;
+}
+
+.stat-card span {
+  color: #727c94;
+  font-size: 14px;
+}
+
+.stat-card h2 {
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.empty {
+  color: #778098;
+  padding: 20px 0;
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 8px;
+  background: #f06449;
+  color: white;
+  padding: 12px 18px;
+}
+
+.primary-button:hover {
+  background: #d95037;
+}
+
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sidebar {
+    width: 220px;
+  }
+
+  .main {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .goal {
+    margin-top: 20px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}
+.assignment-filters {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.assignment-filters input,
+.assignment-filters select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font: inherit;
+  flex: 1;
+  min-width: 180px;
+  background: white;
+}
+
+.assignment-item {
+  padding: 16px;
+  margin: 16px 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.assignment-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.deadline-alerts {
+  margin: 20px 0;
+  padding: 16px;
+  border-radius: 10px;
+  background: #fff7ed;
+}
+
+.deadline-alerts h3 {
+  margin-top: 0;
+}
+
+.deadline-alerts .assignment-item {
+  background: white;
+}
+/* StudyFlow UI polish - Step 1 */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #1e293b;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.2s ease,
+              transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+input,
+select,
+textarea {
+  color: #1e293b;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.13);
+}
+
+.assignment-item {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.035);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.assignment-item:hover {
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
+}
+
+.assignment-filters input,
+.assignment-filters select {
+  border-color: #dbe2ea;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.deadline-alerts {
+  border: 1px solid #fed7aa;
+}
+
+.deadline-alerts .assignment-item {
+  box-shadow: none;
+}
+/* Step 2: Sidebar and dashboard polish */
+
+.sidebar {
+  box-shadow: 4px 0 18px rgba(15, 23, 42, 0.08);
+}
+
+.sidebar h2 {
+  letter-spacing: 0.3px;
+}
+
+.sidebar button {
+  border-radius: 9px;
+  transition: background 0.2s ease, padding 0.2s ease;
+}
+
+.sidebar button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.welcome-banner {
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+}
+
+.stat-card,
+.stat-card h3,
+.stat-card p {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.3px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .assignment-filters {
+    flex-direction: column;
+  }
+
+  .assignment-filters input,
+  .assignment-filters select {
+    width: 100%;
+  }
+
+  .assignment-actions button {
+    flex: 1;
+  }
+}
+/* Step 3: Add Assignment form polish */
+
+form {
+  max-width: 100%;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 6px;
+  border: 1px solid #dbe2ea;
+  border-radius: 9px;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+form label {
+  display: block;
+  margin-top: 16px;
+  color: #334155;
+  font-weight: 600;
+}
+
+form button[type="submit"] {
+  margin-top: 20px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 9px;
+  background: #4f46e5;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+form button[type="submit"]:hover {
+  background: #4338ca;
+  box-shadow: 0 5px 12px rgba(79, 70, 229, 0.2);
+}
+/* Step 4: Assignment cards and status labels */
+
+.assignment-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.assignment-item:hover {
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.assignment-item h3 {
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.assignment-item p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.assignment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.assignment-actions button {
+  padding: 9px 14px;
+  border: 1px solid #dbe2ea;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 600;
+}
+
+.assignment-actions button:hover {
+  background: #eef2ff;
+  border-color: #a5b4fc;
+}
+
+.assignment-item button {
+  cursor: pointer;
+}
+
+.assignment-item .status-pending {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.assignment-item .status-completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.assignment-item .status-overdue {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+/* Step 5: Analytics UI */
+
+.analytics-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+}
+
+.analytics-card h3 {
+  color: #334155;
+  margin-top: 0;
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 10px 0 18px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #6366f1;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #475569;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .analytics-card {
+    padding: 15px;
+  }
+
+  .progress-label {
+    font-size: 13px;
+  }
+}
+/* Step 6: Deadline notification styling */
+
+.deadline-alerts {
+  padding: 22px;
+  margin: 24px 0;
+  border: 1px solid #fed7aa;
+  border-radius: 14px;
+  background: #fffaf5;
+}
+
+.deadline-alerts h3 {
+  margin-top: 0;
+  color: #9a3412;
+}
+
+.deadline-alerts .assignment-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 5px solid #f59e0b;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.deadline-alerts .assignment-item p {
+  line-height: 1.6;
+}
+
+.deadline-alerts .urgent {
+  border-left-color: #dc2626;
+  background: #fff7f7;
+}
+
+.deadline-alerts .due-soon {
+  border-left-color: #f59e0b;
+}
+
+@media (max-width: 600px) {
+  .deadline-alerts {
+    padding: 14px;
+  }
+}
+/* Step 7: Responsive layout */
+
+@media (max-width: 768px) {
+  .app,
+  .app-container,
+  .main-layout {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .main-content,
+  .content,
+  .dashboard {
+    min-width: 0;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .stat-card {
+    min-width: 0;
+    padding: 14px;
+  }
+
+  .stat-card h2 {
+    font-size: 22px;
+  }
+
+  .welcome-banner {
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .assignment-item {
+    padding: 15px;
+    overflow-wrap: anywhere;
+  }
+
+  .assignment-actions {
+    gap: 8px;
+  }
+
+  .assignment-actions button {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .assignment-filters {
+    flex-direction: column;
+  }
+
+  .assignment-filters input,
+  .assignment-filters select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+/* Full-width StudyFlow layout */
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.app,
+.app-container,
+.main-layout {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+}
+
+.main-content,
+.content {
+  flex: 1;
+  min-width: 0;
+  max-width: none;
+}
+
+/* Allow dashboard and analytics sections to expand */
+.panel,
+.stats,
+.analytics-card {
+  max-width: none;
+}
